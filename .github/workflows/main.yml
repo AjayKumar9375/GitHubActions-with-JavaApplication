@@ -18,7 +18,7 @@ jobs:
 
 
       - name: Maven Build
-        run: mvn clean install
+        run: mvn clean package
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
