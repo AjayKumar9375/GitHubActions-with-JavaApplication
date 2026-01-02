@@ -18,13 +18,13 @@ jobs:
 
 
       - name: Maven Build
-        run: mvn clean package
+        run: mvn clean install
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
             name: java-app-build
-            path: target/*.jar
+            path: target/*.war
 
   Test:
     runs-on: ubuntu-latest
