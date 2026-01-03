@@ -88,7 +88,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [Build, Test, Security-Scan]
     environment: production
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
