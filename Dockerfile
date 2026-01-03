@@ -1,0 +1,14 @@
+FROM maven:3.9.9-eclips-temurin-21-jammy AS builder
+
+WORKDIR /app
+
+COPY . /app/
+
+RUN maven clean package
+
+
+FROM tomcat:10-jdk21
+
+COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
+
+CMD [ "catalina.sh", "run" ]
