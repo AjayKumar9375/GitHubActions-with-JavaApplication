@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . /app/
 
-RUN maven clean package
+RUN mvn clean package
 
 
 FROM tomcat:10-jdk21
