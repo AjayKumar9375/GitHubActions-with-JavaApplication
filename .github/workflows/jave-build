@@ -1,0 +1,24 @@
+name: Java CI
+
+on:
+  push:
+    branches: [master]
+  pullrequest: 
+    branches: [master]
+
+jobs:
+  Build:
+    run-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Clean
+        run: mvn clean
+
+      - name: Test
+        run: mvn test
+
+      - name: Build
+        run: mvn package
+
