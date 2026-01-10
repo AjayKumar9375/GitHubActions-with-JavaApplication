@@ -8,20 +8,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: action/checkout@v3
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Test
-      uses: mvn test
+      - name: Test
+        run: mvn test
 
-    - name: Build
-      uses: mvn package -DskipTests
+      - name: Build
+        run: mvn package 
 
-    - name: Upload Artifact
-      uses: action/upload-artifact@v6
-      with:
-        - name: application1
-          paths: target/*.war
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v6
+        with:
+           name: application1
+           path: target/*.war
