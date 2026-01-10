@@ -1,0 +1,27 @@
+name: custom ci pipeline
+
+on:
+  push:
+    branches: [ master]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout
+      uses: action/checkout@v3
+
+    - name: Test
+      uses: mvn test
+
+    - name: Build
+      uses: mvn package -DskipTests
+
+    - name: Upload Artifact
+      uses: action/upload-artifact@v6
+      with:
+        - name: application1
+          paths: target/*.war
