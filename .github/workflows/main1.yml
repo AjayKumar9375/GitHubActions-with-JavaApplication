@@ -1,0 +1,23 @@
+name: CI pipeline
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: ["main"]
+
+  workflow_dispatch:
+permissions: 
+  contents: read
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+
+      - name: Unit test
+        run: mvn test
+
+      - name: Build 
+        run: mvn package
