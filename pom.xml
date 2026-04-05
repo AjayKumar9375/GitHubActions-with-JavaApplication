@@ -10,7 +10,7 @@
     <version>1.0.0</version>
     <packaging>war</packaging>
 
-    <name>Simple WAR Application</name>
+    <name>Simple WAR ApplicationPK</name>
 
     <dependencies>
         <!-- Servlet API -->
